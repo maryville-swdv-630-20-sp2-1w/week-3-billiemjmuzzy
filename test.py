@@ -1,5 +1,5 @@
 import unittest
-from LeaveManagement import LeaveManagement, PaidTimeOff, FlexTime
+from LeaveManagement import LeaveManagement, PaidTimeOff, FlexTime, WorkFromHome
 
 
 class TestLeaveManagement(unittest.TestCase):
@@ -88,6 +88,31 @@ class TestFlexTime(unittest.TestCase):
         test.add_flex(52)
         result = test.display_hours()
         self.assertEqual(result, 12, "Should be 12")
+
+
+class TestWorkFromHome(unittest.TestCase):
+
+    def test_display_id(self):
+        test = WorkFromHome(1111, ("Mystery", "Person"), 16, 0)
+        result = test.display_id()
+        self.assertEqual(result, 1111,  'Should be 1111')
+
+    def test_display_name(self):
+        test = WorkFromHome(1111, ("Mystery", "Person"), 16, 0)
+        result = test.display_name()
+        self.assertEqual(result, 'Mystery Person',
+                         "Should be 'Mystery Person'")
+
+    def test_display_hours(self):
+        test = WorkFromHome(1111, ("Mystery", "Person"), 16, 0)
+        result = test.display_hours()
+        self.assertEqual(result, 16, "Should be 16")
+
+    def test_deduct_wfh(self):
+        test = WorkFromHome(1111, ("Mystery", "Person"), 16, 0)
+        test.deduct_wfh(8)
+        result = test.display_hours()
+        self.assertEqual(result, 8, "Should be 8")
 
 
 if __name__ == '__main__':
