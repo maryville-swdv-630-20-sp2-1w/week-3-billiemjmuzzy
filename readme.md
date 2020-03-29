@@ -4,11 +4,18 @@
 
 For this exercise, we want you to code a generic superclass and at least three subclasses of that superclass, each class needs to have at least 2 attributes and 2 methods. It’s easiest to simply describe a real-world object in this manner. You need to provide a test method that shows your classes in operation.
 
+## Assignment Submission
+
+- LeaveManagement.py : Class files
+- driver.py: Testing Leave Management classes
+- helpers.py: functions for formatting print out
+- test.py: Unit tests for each of the classes
+
 # Week 3 - Inheritance 2
 
 ## Assignment Details and Answers
 
-```Python
+```
 class Spell:
   def __init__(self, incantation, name):
     self.name = name
