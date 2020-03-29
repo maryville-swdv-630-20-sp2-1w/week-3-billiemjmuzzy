@@ -73,9 +73,7 @@ Answer the following questions:
 
 4) When study_spell(Confundo()) executes...what get_description method gets called and why?
 
-   - The `get_description` from the `Confundo` class gets called
-
-   TODO answer why
+   - The `get_description` from the `Confundo` class gets called because the subclass overrides the parent class.
 
 5) The statement print Accio() needs to print ‘This charm summons an object to the caster, potentially over a significant distance’)? Write down the code that we need to add and/or change
 
