@@ -1,4 +1,4 @@
-from LeaveManagement import LeaveManagement, PaidTimeOff
+from LeaveManagement import LeaveManagement, PaidTimeOff, FlexTime
 
 
 class main():
@@ -17,8 +17,15 @@ class main():
         # output = label + 1234, Atlas Muzzy, 27
         print(test_pto)
 
+    def flex_time():
+        test_flex = FlexTime(4321, ("Gizmo", "Muzzy"), 0, 0)
+        test_flex.add_flex(43)
+        # output = label + 4321, Gizmo Muzzy, 3
+        print(test_flex)
+
     # leave_management()
-    paid_time_off()
+    # paid_time_off()
+    flex_time()
 
 
 main()

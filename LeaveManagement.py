@@ -18,6 +18,7 @@ class LeaveManagement:
         self.total_hours = hours
 
     def display_id(self):
+        # TODO allow ids to start with 0
         return self.employee_id
 
     def display_name(self):
@@ -70,4 +71,20 @@ class PaidTimeOff(LeaveManagement):
         return f'Employee ID: {self.employee_id}\nEmployee Name: {self.name[0]} {self.name[1]}\nAvailable: {self.total_hours}\nAccrued: {self.accrued}\nTaken: {self.taken}'
 
 
+class FlexTime(LeaveManagement):
+    # TODO allow multiple weeks to accumulate
+    def __init__(self, id, name, hours, hours_worked):
+        super().__init__(id, name, hours)
+        self.hours_worked = hours_worked
 
+    def add_flex(self, hours_worked):
+        self.hours_worked += hours_worked
+        if self.hours_worked > 40:
+            self.total_hours = self.hours_worked - 40
+            return self.hours_worked, self.total_hours
+        else:
+            self.total_hours = 0
+            return self.total_hours
+
+    def display_hours_worked(self):
+        return self.hours_worked
