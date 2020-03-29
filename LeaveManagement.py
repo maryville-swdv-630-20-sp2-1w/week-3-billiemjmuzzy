@@ -1,6 +1,6 @@
 class LeaveManagement:
     """
-    Generic superclass to implement the 
+    Generic superclass to implement the
     Leave Management System functionality.
 
     Main methods:
@@ -34,7 +34,7 @@ class LeaveManagement:
         return self.total_hours
 
     def __str__(self):
-        return f'Employee ID: {self.employee_id}\nEmployee Name: {self.name[0]} {self.name[1]}\nAvailable: {self.total_hours}'
+        return f'Employee ID: {self.employee_id}\nEmployee Name: {self.name[0]} {self.name[1]}\nAvailable: {self.total_hours}\n'
 
 
 class PaidTimeOff(LeaveManagement):
@@ -68,7 +68,7 @@ class PaidTimeOff(LeaveManagement):
         return self.taken
 
     def __str__(self):
-        return f'Employee ID: {self.employee_id}\nEmployee Name: {self.name[0]} {self.name[1]}\nAvailable: {self.total_hours}\nAccrued: {self.accrued}\nTaken: {self.taken}'
+        return f'Employee ID: {self.employee_id}\nEmployee Name: {self.name[0]} {self.name[1]}\nAvailable: {self.total_hours}\nAccrued: {self.accrued}\nTaken: {self.taken}\n'
 
 
 class FlexTime(LeaveManagement):
@@ -88,3 +88,17 @@ class FlexTime(LeaveManagement):
 
     def display_hours_worked(self):
         return self.hours_worked
+
+
+class WorkFromHome(LeaveManagement):
+    def __init__(self, id, name, hours, deduct):
+        super().__init__(id, name, hours)
+        self.deduct = deduct
+
+    def deduct_wfh(self, deduct):
+        self.deduct += deduct
+        self.total_hours -= deduct
+        return self.total_hours, self.deduct
+
+    def __str__(self):
+        return f'Employee ID: {self.employee_id}\nEmployee Name: {self.name[0]} {self.name[1]}\nAvailable: {self.total_hours}\nTotal Deducted: {self.deduct}\n'

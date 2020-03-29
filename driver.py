@@ -1,4 +1,4 @@
-from LeaveManagement import LeaveManagement, PaidTimeOff, FlexTime
+from LeaveManagement import LeaveManagement, PaidTimeOff, FlexTime, WorkFromHome
 
 
 class main():
@@ -23,9 +23,16 @@ class main():
         # output = label + 4321, Gizmo Muzzy, 3
         print(test_flex)
 
-    # leave_management()
-    # paid_time_off()
+    def work_from_home():
+        test_wfh = WorkFromHome(1111, ("Mystery", "Person"), 16, 0)
+        test_wfh.deduct_wfh(8)
+        test_wfh.deduct_wfh(8)
+        print(test_wfh)
+
+    leave_management()
+    paid_time_off()
     flex_time()
+    work_from_home()
 
 
 main()
